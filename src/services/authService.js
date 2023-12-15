@@ -9,7 +9,12 @@ export async function login(authDetail) {
     requestOptions
   );
   if (!response.ok) {
-    throw { message: response.statusText, status: response.status };
+    throw { message: response.statusText, status: response.status }; // eslint-disable-line
+  }
+  if (!response.ok) {
+    const error = new Error(response.statusText);
+    error.status = response.status;
+    throw error;
   }
   const data = await response.json();
   if (data.accessToken) {
@@ -32,7 +37,7 @@ export async function register(authDetail) {
     requestOptions
   );
   if (!response.ok) {
-    throw { message: response.statusText, status: response.status };
+    throw { message: response.statusText, status: response.status }; // eslint-disable-line
   }
   const data = await response.json();
   if (data.accessToken) {
