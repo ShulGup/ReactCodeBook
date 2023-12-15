@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom";
 import { useTitle } from "../hooks/useTitle";
+import { Link } from "react-router-dom";
 
 export const PageNotFound = () => {
   useTitle("Page Not Found");
